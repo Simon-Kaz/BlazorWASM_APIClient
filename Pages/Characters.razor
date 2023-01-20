@@ -1,0 +1,48 @@
+@page "/characters"
+
+
+<PageTitle>Rick And Morty</PageTitle>
+
+<h1>Characters</h1>
+
+<p>This is character data pulled from the rick and morty API using service abstraction over GraphQL and REST API.</p>
+
+@if (_characters == null)
+{
+    <p>
+        <em>Loading...</em>
+    </p>
+}
+else
+{
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Species</th>
+            <th>Origin</th>
+            <th>Status</th>
+            <th>Current Location</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var character in _characters)
+        {
+            <tr>
+                <td>@character.Id</td>
+                <td>@character.Name</td>
+                <td>@character.Gender</td>
+                <td>@character.Species</td>
+                <td>@character.Origin.Name</td>
+                <td>@character.Status</td>
+                <td>@character.Location.Name</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+@code {
+        
+}
